@@ -2,17 +2,23 @@ package org.example.messageexercise.controller;
 
 import org.example.messageexercise.model.Message;
 import org.example.messageexercise.service.MessageService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+// todo-2: implement updating message
+// todo-3: deleting a message
+// todo-4: implement patch http method as well
 
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {
 
     MessageService messageService;
+
+    public MessageController(MessageService messageService) {
+        this.messageService= messageService;
+    }
 
     @GetMapping
     public List<Message> getMessages() {
@@ -27,6 +33,10 @@ public class MessageController {
         return messages;
     }
 
+    @PostMapping
+    public Message createNewMessage(@RequestBody Message newMessage) {
+        return messageService.createMessage(newMessage);
+    }
 
 
 }
