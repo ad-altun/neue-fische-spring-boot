@@ -38,5 +38,10 @@ public class MessageController {
         return messageService.createMessage(newMessage);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void removeMessage(@PathVariable Long id) {
+        messageService.deleteMessage(id);
+    }
+
 
 }
