@@ -1,7 +1,6 @@
 package org.example.asterixapi.controller;
 
 import org.example.asterixapi.model.Character;
-import org.example.asterixapi.repository.CharacterRepository;
 import org.example.asterixapi.service.CharacterService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +16,14 @@ public class AsterixController {
         this.characterService = characterService;
     }
 
+    @GetMapping("/{id}")
+    public Character findCharacterById(@PathVariable Long id) {
+        return characterService.findCharacterById(id).orElse(null);
+    }
 
     @GetMapping
     public List<Character> getCharacters() {
-        return characterService.getAllCharacters();
+        return characterService.findAllCharacters();
     }
 
     @PostMapping

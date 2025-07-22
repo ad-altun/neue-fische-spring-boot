@@ -5,6 +5,7 @@ import org.example.asterixapi.repository.CharacterRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CharacterService {
@@ -15,12 +16,15 @@ public class CharacterService {
         this.characterRepository = characterRepository;
     }
 
-    public List<Character> getAllCharacters() {
+    public List<Character> findAllCharacters() {
         return characterRepository.findAll();
+    }
+
+    public Optional<Character> findCharacterById(Long id) {
+        return characterRepository.findById(id);
     }
 
     public List<Character> addCharacters(List<Character> characters) {
         return characterRepository.saveAll(characters);
     }
-
 }
