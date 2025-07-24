@@ -27,4 +27,14 @@ public class CharacterService {
 
         return  characters;
     }
+
+    public CharacterModel getCharacterById(Integer id) {
+
+        CharacterModel character =
+                restClient.get().uri("/character/" + id)
+                        .retrieve()
+                        .body(CharacterModel.class);
+
+        return character;
+    }
 }
