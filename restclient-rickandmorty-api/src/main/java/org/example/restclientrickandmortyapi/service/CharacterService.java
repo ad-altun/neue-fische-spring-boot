@@ -2,6 +2,7 @@ package org.example.restclientrickandmortyapi.service;
 
 import org.example.restclientrickandmortyapi.model.CharacterModel;
 import org.example.restclientrickandmortyapi.model.CharacterResults;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -31,10 +32,33 @@ public class CharacterService {
     public CharacterModel getCharacterById(Integer id) {
 
         CharacterModel character =
-                restClient.get().uri("/character/" + id)
+                restClient.get().uri("/character/{id}", id)
                         .retrieve()
                         .body(CharacterModel.class);
 
         return character;
+
+        // Alternative
+        // -------------------------
+        // ResponseEntity<CharacterModel> character =
+        //        restClient.get().uri("/character/{id}", id)
+        //                .retrieve()
+        //                .toEntity(CharacterModel.class);
+
+        // return character.getBody();
     }
+
+    public List<CharacterModel> filterCharactersByStatus(String status) {
+
+        List<CharacterModel> characters =
+                restClient.get()
+                        .uri("/character?status={status}", status)
+                        .retrieve()
+                        .body(CharacterResults.class)
+                        .results();
+
+        return characters;
+    }
+
+
 }
