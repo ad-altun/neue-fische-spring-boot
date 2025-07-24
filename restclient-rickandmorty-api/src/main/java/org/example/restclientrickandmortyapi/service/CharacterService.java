@@ -2,7 +2,6 @@ package org.example.restclientrickandmortyapi.service;
 
 import org.example.restclientrickandmortyapi.model.CharacterModel;
 import org.example.restclientrickandmortyapi.model.CharacterResults;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -26,7 +25,7 @@ public class CharacterService {
                         .body(CharacterResults.class)
                         .results();
 
-        return  characters;
+        return characters;
     }
 
     public CharacterModel getCharacterById(Integer id) {
@@ -60,5 +59,14 @@ public class CharacterService {
         return characters;
     }
 
+    public String getStatistics(String species) {
+        List<CharacterModel> characters =
+                restClient.get()
+                        .uri("/character?species={species}", species)
+                        .retrieve()
+                        .body(CharacterResults.class)
+                        .results();
 
+        return "The number of living " + species + " is: " + characters.size();
+    }
 }
