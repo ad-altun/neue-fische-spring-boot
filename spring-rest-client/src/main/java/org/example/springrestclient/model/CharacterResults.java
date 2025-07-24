@@ -1,4 +1,4 @@
-package org.example.restclientrickandmortyapi.model;
+package org.example.springrestclient.model;
 
 import java.util.List;
 

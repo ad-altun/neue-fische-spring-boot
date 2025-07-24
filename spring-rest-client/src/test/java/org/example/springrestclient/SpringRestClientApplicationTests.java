@@ -1,10 +1,10 @@
-package org.example.restclientrickandmortyapi;
+package org.example.springrestclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestclientRickandmortyApiApplicationTests {
+class SpringRestClientApplicationTests {
 
     @Test
     void contextLoads() {

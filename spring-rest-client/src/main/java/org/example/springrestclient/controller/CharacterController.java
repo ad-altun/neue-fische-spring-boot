@@ -1,7 +1,7 @@
-package org.example.restclientrickandmortyapi.controller;
+package org.example.springrestclient.controller;
 
-import org.example.restclientrickandmortyapi.model.CharacterModel;
-import org.example.restclientrickandmortyapi.service.CharacterService;
+import org.example.springrestclient.model.CharacterModel;
+import org.example.springrestclient.service.CharacterService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

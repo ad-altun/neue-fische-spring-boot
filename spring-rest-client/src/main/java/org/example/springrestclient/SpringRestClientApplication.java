@@ -1,13 +1,13 @@
-package org.example.restclientrickandmortyapi;
+package org.example.springrestclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RestclientRickandmortyApiApplication {
+public class SpringRestClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RestclientRickandmortyApiApplication.class, args);
+        SpringApplication.run(SpringRestClientApplication.class, args);
     }
 
 }

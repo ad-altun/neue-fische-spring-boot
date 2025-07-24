@@ -1,7 +1,7 @@
-package org.example.restclientrickandmortyapi.service;
+package org.example.springrestclient.service;
 
-import org.example.restclientrickandmortyapi.model.CharacterModel;
-import org.example.restclientrickandmortyapi.model.CharacterResults;
+import org.example.springrestclient.model.CharacterModel;
+import org.example.springrestclient.model.CharacterResults;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
