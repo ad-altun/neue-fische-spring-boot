@@ -1,7 +1,10 @@
 package org.example.springrestclient.service;
 
+import org.example.springrestclient.dto.UserDataDto;
+import org.example.springrestclient.dto.UserDto;
 import org.example.springrestclient.model.UserData;
 import org.example.springrestclient.model.UserModel;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -19,6 +22,7 @@ public class UserService {
                 .build();
     }
 
+    // get all users
     public List<UserModel> getAllUsers() {
         List<UserModel> users =
                 restClient.get()
@@ -26,8 +30,17 @@ public class UserService {
                         .retrieve()
                         .body(UserData.class)
                         .data();
-
         return users;
+    }
+
+    // create a user
+    public UserDataDto createUser(UserDto newUser) {
+        return restClient.post()
+                .uri("/users")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(newUser)
+                .retrieve()
+                .body(UserDataDto.class);
     }
 
 }
