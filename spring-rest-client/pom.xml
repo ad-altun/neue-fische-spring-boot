@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>restclient-rickandmorty-api</artifactId>
+    <artifactId>spring-rest-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>restclient-rickandmorty-api</name>
-    <description>restclient-rickandmorty-api</description>
+    <name>spring-rest-client</name>
+    <description>spring-rest-client</description>
     <url/>
     <licenses>
         <license/>
